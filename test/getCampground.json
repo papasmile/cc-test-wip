@@ -1,10 +1,67 @@
 {
-  "Campsites": [
-    {
-      "id": 123
-    },
-    {
-      "id": 456
-    }
-  ]
+	"Campground": {
+		"Id": 1,
+		"Name": "Engineering Campground",
+		"Boundaries": {
+			"BoundaryPoints": {
+				"points": "-94.68882,42.551775;-94.690694,42.552024;-94.692664,42.552214;-94.692655,42.551398;-94.692547,42.551293;-94.692079,42.551287;-94.691928,42.551372;-94.691932,42.550839;-94.690002,42.550842;-94.68966,42.551186;-94.689492,42.551159;-94.68925,42.550974;-94.689106,42.550747;-94.688779,42.55065;-94.688721,42.55176"
+			},
+			"CenterPoint": {
+				"lat": 42.5517,
+				"lng": -94.691
+			},
+			"FacingDirection": 0,
+			"ObjectType": 0
+		},
+		"Campsites": [{
+			"Id": 1,
+			"name": "R1",
+			"siteType": "Back in",
+			"slabType": "Grass",
+			"length": 55,
+			"width": 18,
+			"maxTrailerSize": 45,
+			"minTrailerSize": 1,
+			"electric": "50,30",
+			"water": 1,
+			"sewer": 1,
+			"cable": 0,
+			"wifi": 0,
+			"firepit": 0,
+			"picnicTable": 0,
+			"grill": 0,
+			"minDays": 1,
+			"blockDays": 1,
+			"maintenanceStart": "0001-01-01T00:00:00Z",
+			"maintenanceEnd": "0001-01-01T00:00:00Z",
+			"rvSite": 1,
+			"monthlySite": 0,
+			"boundaries": {
+				"BoundaryPoints": {
+					"points": "-94.688935,42.551061;-94.688943,42.551294;-94.689085,42.551294;-94.68908,42.551053"
+				},
+				"CenterPoint": {
+					"lat": 42.551176,
+					"lng": -94.689011
+				},
+				"FacingDirection": 0,
+				"ObjectType": 0
+			}
+		}],
+		"Amenities": null,
+		"Roads": [{
+			"Id": 2,
+			"road": {
+				"BoundaryPoints": {
+					"points": "-94.688799,42.551774;-94.688778,42.551022;-94.689180,42.551035;-94.689388,42.551139;-94.689171,42.551340;-94.689034,42.551595;-94.688799,42.551774"
+				},
+				"CenterPoint": {
+					"lat": 0,
+					"lng": 0
+				},
+				"FacingDirection": 0,
+				"ObjectType": 0
+			}
+		}]
+	}
 }

@@ -423,21 +423,22 @@ body {
                     <li><span id="toggle-passes" class="toggle-passes">show failures only</span></li>
                 </ul>
                 <ul class="mocha-stats">
-                    <li class="passes">passes: <em>1</em></li>
+                    <li class="passes">passes: <em>2</em></li>
                     <li class="pending">pending: <em>0</em></li>
-                    <li class="failures">failures: <em>1</em></li>
-                    <li class="duration">duration: <em>30ms</em></li>
+                    <li class="failures">failures: <em>0</em></li>
+                    <li class="duration">duration: <em>123ms</em></li>
                 </ul>
             </div>
-            <ul id="report"><li class="suite"><h1>Primary Flow</h1><ul><li class="test fail"><h2>should return data properly</h2><pre><code>this.timeout(20000);
-request(&#x27;http://api.campgroundcommander.com/&#x27;)
-    .get(url)
-    .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;)
-    .expect(&#x27;Content-Type&#x27;, /json/)
-    .expect(200)
-    .then(response =&#x3E; { handleSuccess(response); done() })
-    .catch(err =&#x3E; done(err));</code></pre><pre class="error">Error: getaddrinfo ENOTFOUND api.campgroundcommander.com
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:69:26)</pre></li></ul></li><li class="suite"><h1>Setup</h1><ul><li class="test pass fast"><h2>does work<span class="duration">0ms</span></h2><pre><code>expect(true).to.equal(true);</code></pre></li></ul></li></ul>
+            <ul id="report"><li class="suite"><h1>Primary Flow</h1><ul><li class="test pass slow"><h2>should return data properly<span class="duration">116ms</span></h2><pre><code>this.timeout(20000);
+req.get(&#x27;/eng&#x27; + url)
+  .set(&#x27;X-API-Auth&#x27;, &#x27;daa49316-bc03-4811-9781-d74c0defa62e&#x27;)
+  .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;)
+  //.expect(&#x27;Content-Type&#x27;, /json/)  TODO: MENTION TO SIMON
+  .expect(200)
+  .then(response =&#x3E; { handleSuccess(JSON.parse(response.text)); done() })
+  .catch(err =&#x3E; done(err))
+  // .end((err, res) =&#x3E; console.log(res)) // uncomment to debug</code></pre></li></ul></li><li class="suite"><h1>Setup</h1><ul><li class="test pass fast"><h2>does work<span class="duration">0ms</span></h2><pre><code>// read db and validate updates
+expect(true).to.equal(true);</code></pre></li></ul></li></ul>
         </div>
         <script>
         function hideSuitesWithout(className) {
