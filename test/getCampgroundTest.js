@@ -1,7 +1,6 @@
 
 import { expect } from 'chai';
 import dataSetup, { testSuccess } from '../framework/base.js';
-import fs from 'fs';
 
 
 let testData;

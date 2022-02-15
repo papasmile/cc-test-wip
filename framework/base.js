@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import mysql from 'mysql';
+import fs from 'fs';
 
 const req = request('https://getcampground-ntxpstvepa-uc.a.run.app')
 
@@ -19,7 +20,9 @@ const setupTest = (dataFile, extraInit) => {
     fs.readFile(dataFile,'utf-8', (err,jsonString) => {
         const testData = JSON.parse(jsonString);
         doStuff(testData, () => {
+          console.log('a');
           extraInit(testData);
+          console.log('b');
           done();
         });
     });
@@ -29,7 +32,7 @@ const setupTest = (dataFile, extraInit) => {
 
 const doStuff = (testData, complete) => {
   const updates = {}; // table: row count
-  const ticker = 0;
+  let ticker = 0;
 
   // for each arg key, delete table, populate data from table
   Object.keys(testData).forEach(tableName => {
@@ -51,7 +54,7 @@ const doStuff = (testData, complete) => {
 export default setupTest;
 
 export const testSuccess = (scenario, url, handleSuccess) => {
-  it(scenario, done => {
+  it(scenario, function(done) {
     this.timeout(20000);
     req.get('/eng' + url)
       .set('X-API-Auth', 'daa49316-bc03-4811-9781-d74c0defa62e')
