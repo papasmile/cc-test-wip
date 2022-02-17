@@ -14,42 +14,81 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-const setupTest = (dataFile, extraInit) => {
+const foreignKeyMap = {
+  campgroundId: 'Campgrounds',
+  campsiteId: 'Campsites'
+}
 
+const setupTest = (dataFile, extraInit) => {
   before(done => {
     fs.readFile(dataFile,'utf-8', (err,jsonString) => {
-        const testData = JSON.parse(jsonString);
-        doStuff(testData, () => {
-          console.log('a');
-          extraInit(testData);
-          console.log('b');
-          done();
-        });
+      const testData = JSON.parse(jsonString);
+      createData(testData, {}, 0, 0, () => {
+        console.log('a');
+        extraInit(testData);
+        console.log('b');
+        done();
+      });
     });
   });
-
 };
 
-const doStuff = (testData, complete) => {
-  const updates = {}; // table: row count
-  let ticker = 0;
+const createData = (testData, rowIds, tableNameIndex, rowIndex, complete) => {
+  if (rowIds[getTableName(testData, tableNameIndex)]) {
+    peformInsert();
+  } else {
+    performDelete(testData, rowIds, tableNameIndex, rowIndex, complete);
+  }
+};
 
-  // for each arg key, delete table, populate data from table
-  Object.keys(testData).forEach(tableName => {
-    testData[tableName].forEach(item => {
-    ticker++;
-    connection.query(`DELETE FROM ${tableName}`, (error, results, fields) => {
-        connection.query(`INSERT INTO ${tableName} SET ?`, item, (error, results, fields) => {
-          console.log(`row inserted into ${tableName}`);
-          console.log(error);
-          console.log(results);
-          ticker--;
-          if (ticker == 0) complete();
-        });
-      });
-    })
+const getTableName = (testData, tableNameIndex) => {
+  const tableNames = Object.keys(testData);
+  const tableName = tableNames[tableNameIndex];
+}
+
+const performInsert = (testData, rowIds, tableNameIndex, rowIndex, complete) => {
+  console.log('insert' + tableNameIndex);
+  const tableName = getTableName(testData, tableNameIndex);
+  const rawItem = testData[tableName][rowIndex];
+  const item = swapIds(item, rowIds);
+  connection.query(`INSERT INTO ${tableName} SET ?`, item, (error, results, fields) => {
+    console.log(`row inserted into ${tableName}`);
+    // console.log(error);
+    // console.log(results);
+    rowIds[tableName].push(results.insertId);
+    if (rowIndex === testData[tableName].length -1) {
+      if (tableNameIndex === tableNames.length - 1) {
+        complete();
+      } else {
+        createData(testData, rowIds, tableNameIndex + 1, 0, complete);
+      }
+    } else {
+      createData(testData, rowIds, tableNameIndex, rowIndex + 1, complete);
+    }
   });
-};
+}
+
+const swapIds = (rawItem, rowIds) => {
+  const item = { ...rawItem };
+  Object.keys(foreignKeyMap).forEach(key => {
+    const foreignObjectIndex = item[key];
+    if (foreignObjectIndex) item[key] = rowIds[foreignKeyMap[key]][foreignObjectIndex];
+  })
+}
+
+const performDelete = (testData, rowIds, tableNameIndex, rowIndex, complete) => {
+  console.log('delete' + tableNameIndex);
+  const tableName = getTableName(testData, tableNameIndex);
+  connection.query(`DELETE FROM ${tableName}`, (error, results, fields) => {
+    if (error) {
+      console.log(error);
+      return complete();
+    }
+    rowIds[tableName] = [];
+    createData(testData, rowIds, tableNameIndex, rowIndex, complete);
+  });
+}
+
 
 export default setupTest;
 
