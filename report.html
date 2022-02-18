@@ -423,34 +423,21 @@ body {
                     <li><span id="toggle-passes" class="toggle-passes">show failures only</span></li>
                 </ul>
                 <ul class="mocha-stats">
-                    <li class="passes">passes: <em>0</em></li>
+                    <li class="passes">passes: <em>1</em></li>
                     <li class="pending">pending: <em>0</em></li>
-                    <li class="failures">failures: <em>1</em></li>
-                    <li class="duration">duration: <em>2s</em></li>
+                    <li class="failures">failures: <em>0</em></li>
+                    <li class="duration">duration: <em>719ms</em></li>
                 </ul>
             </div>
-            <ul id="report"><li class="suite"><h1>getCampground</h1><ul><li class="suite"><h1>Primary Flow</h1><ul><li class="test fail"><h2>should return data properly</h2><pre><code>this.timeout(20000);
+            <ul id="report"><li class="suite"><h1>getCampground</h1><ul><li class="suite"><h1>Primary Flow</h1><ul><li class="test pass slow"><h2>should return data properly<span class="duration">126ms</span></h2><pre><code>this.timeout(20000);
 req.get(&#x27;/eng&#x27; + url)
   .set(&#x27;X-API-Auth&#x27;, &#x27;daa49316-bc03-4811-9781-d74c0defa62e&#x27;)
   .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;)
   //.expect(&#x27;Content-Type&#x27;, /json/)  TODO: MENTION TO SIMON
   .expect(200)
-  .then(response =&#x3E; { handleSuccess(JSON.parse(response.text)); done() })
+  .then(response =&#x3E; { handleSuccess(JSON.parse(response.text)); done(); })
   .catch(err =&#x3E; done(err))
-  // .end((err, res) =&#x3E; console.log(res)) // uncomment to debug</code></pre><pre class="error">Error: expected 200 &#x22;OK&#x22;, got 403 &#x22;Forbidden&#x22;
-    at Context.&#x3C;anonymous&#x3E; (file:///home/papa/github/cc-1/framework/base.js:63:8)
-    at processImmediate (internal/timers.js:464:21)
-----
-    at Test._assertStatus (node_modules/supertest/lib/test.js:252:14)
-    at /home/papa/github/cc-1/node_modules/supertest/lib/test.js:306:17
-    at Test._assertFunction (node_modules/supertest/lib/test.js:285:13)
-    at Test.assert (node_modules/supertest/lib/test.js:164:23)
-    at localAssert (node_modules/supertest/lib/test.js:120:14)
-    at /home/papa/github/cc-1/node_modules/supertest/lib/test.js:125:7
-    at Test.Request.callback (node_modules/superagent/lib/node/index.js:927:3)
-    at IncomingMessage.&#x3C;anonymous&#x3E; (node_modules/superagent/lib/node/index.js:1149:20)
-    at endReadableNT (internal/streams/readable.js:1317:12)
-    at processTicksAndRejections (internal/process/task_queues.js:82:21)</pre></li></ul></li></ul></li></ul>
+  // .end((err, res) =&#x3E; console.log(res)) // uncomment to debug</code></pre></li></ul></li></ul></li></ul>
         </div>
         <script>
         function hideSuitesWithout(className) {
