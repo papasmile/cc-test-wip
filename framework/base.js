@@ -1,10 +1,12 @@
+/*
+  base.js provides test data management based on a json file and REST api test support.
+*/
+
 import request from 'supertest';
 import { expect } from 'chai';
 import mysql from 'mysql';
 import fs from 'fs';
 import { createData } from './tdm.js';
-
-const req = request('https://getcampground-ntxpstvepa-uc.a.run.app')
 
 var connection = mysql.createConnection({
   host     : '34.122.228.45',
@@ -15,6 +17,34 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+const req = request('https://getcampground-ntxpstvepa-uc.a.run.app');
+
+/*
+
+To initialize, call default export with a relative path to json data representing tables and columns.
+a callback function can be passed to perform any extra pre-suite initalization or to capture json data.
+
+Example 'data.json':
+
+{
+	"Campgrounds": [{
+		"name": "Test Campground",
+		"urlName": "eng",
+		"productionLive": 1
+	}]
+}
+
+Example test code, 'test/mytest.js':
+
+import setup from '../framework/base.js';
+
+var testData;
+
+dataSetup('./test/data.json', data => testData = data);
+
+describe("my tests", () => { ... });
+
+*/
 const setupTest = (dataFile, extraInit) => {
   before(done => {
     fs.readFile(dataFile,'utf-8', (err,jsonString) => {
@@ -33,6 +63,19 @@ const setupTest = (dataFile, extraInit) => {
   })
 };
 
+/*
+
+  To test a successful REST GET scenario pass a descrption, route, and handler for response data.
+
+  Example test code, 'test/mygettest.js':
+
+  import { testSuccess } from '../framework/base.js';
+
+  describe('my test', () => {
+    testSuccess('should work', '/getCampground', response => { ... });
+  });
+
+*/
 export const testSuccess = (scenario, url, handleSuccess) => {
   it(scenario, function(done) {
     this.timeout(20000);

@@ -4,6 +4,30 @@
 		"urlName": "eng",
 		"productionLive": 1
 	}],
+	"Configurations": [{
+		"campgroundId" : 0,
+		"updated" : "2022-02-09 12:28:52",
+		"defaultZoom" : 18,
+		"receiptEmail" : "simon@campgroundcommander.com",
+		"receiptName" : "CC Eng Receipt",
+		"receiptUrl" : "https:\/\/eng.campgroundonline.org\/confirm.php?receipt=1",
+		"reservationUrl" : "https:\/\/eng.campgroundonline.org",
+		"logoUrl" : "https:\/\/prodtest.campgroundonline.org\/img\/campgroundcommander-logo-300.png",
+		"CCProcessor" : 3,
+		"checkinTime" : "14:00",
+		"checkoutTime" : "11:00",
+		"taxRate" : 0.00000,
+		"minutesFromGmt" : -300,
+		"tzTxt" : "America\/Chicago",
+		"billingCutoffTime" : 0,
+		"basysUsername" : "api_1YGqaBXNChuBOJtlJs2Pu4uOcxg",
+		"basysRequireL2" : 0,
+		"basysProcessUrl" : "https:\/\/sandbox.basysiqpro.com\/api",
+		"applyTax" : 3,
+		"CCFeeDay" : 0,
+		"chargeCCFee" : 0,
+		"BlacklistCfg" : 1
+	}],
 	"AuthenticationKeys": [{
 		"campgroundId": 0,
 		"apiKeyId": 1,
@@ -32,10 +56,18 @@
 		"RVSite": 1,
 		"monthlySite": 0
 	}],
+	"Amenities":[{
+		"campgroundId": 0,
+		"name": "Test Amenity 1",
+		"iconUrl": "https://logo.com/",
+		"centerLat": 42.0,
+		"centerLon": -94.0,
+		"description": "An amenity for testing purposes"
+	}],
 	"ObjectLocations": [{
 		"campgroundId": 0,
 		"boundaryPoints": "-94.68882,42.551775;-94.690694,42.552024;-94.692664,42.552214;-94.692655,42.551398;-94.692547,42.551293;-94.692079,42.551287;-94.691928,42.551372;-94.691932,42.550839;-94.690002,42.550842;-94.68966,42.551186;-94.689492,42.551159;-94.68925,42.550974;-94.689106,42.550747;-94.688779,42.55065;-94.688721,42.55176",
-		"boundaryDisplayPoints": "",
+		"boundaryDisplayPoints": "-94.68882,42.551775;-94.690694,42.552024;-94.692664,42.552214;-94.692655,42.551398;-94.692547,42.551293;-94.692079,42.551287;-94.691928,42.551372;-94.691932,42.550839;-94.690002,42.550842;-94.68966,42.551186;-94.689492,42.551159;-94.68925,42.550974;-94.689106,42.550747;-94.688779,42.55065;-94.688721,42.55176",
 		"centerLat": 42.5517,
 		"centerLon": -94.691,
 		"facingDirection": 0,
@@ -45,7 +77,7 @@
 		"campgroundId": 0,
 		"campsiteId": 0,
 		"boundaryPoints": "-94.688935,42.551061;-94.688943,42.551294;-94.689085,42.551294;-94.68908,42.551053",
-		"boundaryDisplayPoints": "",
+		"boundaryDisplayPoints": "-94.688935,42.551061;-94.688943,42.551294;-94.689085,42.551294;-94.68908,42.551053",
 		"centerLat": 42.551176,
 		"centerLon": -94.689011,
 		"facingDirection": 0,
@@ -54,7 +86,7 @@
 	{
 		"campgroundId": 0,
 		"boundaryPoints": "-94.688799,42.551774;-94.688778,42.551022;-94.689180,42.551035;-94.689388,42.551139;-94.689171,42.551340;-94.689034,42.551595;-94.688799,42.551774",
-		"boundaryDisplayPoints": "",
+		"boundaryDisplayPoints": "-94.688799,42.551774;-94.688778,42.551022;-94.689180,42.551035;-94.689388,42.551139;-94.689171,42.551340;-94.689034,42.551595;-94.688799,42.551774",
 		"facingDirection": 0,
 		"objectType": 1
 	}]
