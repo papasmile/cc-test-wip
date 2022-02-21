@@ -4,7 +4,8 @@
   "description": "Integration tests for public-facing Campground Commander services",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter-options output=report.html"
+    "test": "./test/run_suite",
+    "yo": "console.log(new Date())"
   },
   "author": "Campground Commander",
   "eslintConfig": {

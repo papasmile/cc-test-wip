@@ -11,10 +11,6 @@ describe("getCampground", () => {
   describe('Primary Flow', () => {
 
     testSuccess('should return data properly', '/getCampground', response => {
-      console.log("neat..."+ Object.keys(response));
-
-      expect(true).to.equal(true);
-
       const campgroundResponse = response.Campground;
       const campgroundData = testData.Campgrounds[0];
 
@@ -61,6 +57,11 @@ describe("getCampground", () => {
       expect(amenitiyResponse.description).to.equal(amenitiyData.description);
       expect(amenitiyResponse.centerPoint.CenterPoint.lat).to.equal(amenitiyData.centerLat);
       expect(amenitiyResponse.centerPoint.CenterPoint.lng).to.equal(amenitiyData.centerLon);
+
+      const roadResponse = campgroundResponse.Roads[0];
+      const roadData = testData.ObjectLocations[2];
+
+      expect(roadResponse.road.BoundaryPoints.points).to.equal(roadData.boundaryPoints);
     });
 
   });

@@ -1,0 +1,131 @@
+{
+  "Campgrounds": [{
+    "name": "Engineering Campground",
+    "urlName": "eng",
+    "productionLive": 1
+  }],
+  "Configurations": [{
+    "campgroundId" : 0,
+    "updated" : "2022-02-09 12:28:52",
+    "defaultZoom" : 18,
+    "receiptEmail" : "simon@campgroundcommander.com",
+    "receiptName" : "CC Eng Receipt",
+    "receiptUrl" : "https:\/\/eng.campgroundonline.org\/confirm.php?receipt=1",
+    "reservationUrl" : "https:\/\/eng.campgroundonline.org",
+    "logoUrl" : "https:\/\/prodtest.campgroundonline.org\/img\/campgroundcommander-logo-300.png",
+    "CCProcessor" : 3,
+    "checkinTime" : "14:00",
+    "checkoutTime" : "11:00",
+    "taxRate" : 0.00000,
+    "minutesFromGmt" : -300,
+    "tzTxt" : "America\/Chicago",
+    "billingCutoffTime" : 0,
+    "basysUsername" : "api_1YGqaBXNChuBOJtlJs2Pu4uOcxg",
+    "basysRequireL2" : 0,
+    "basysProcessUrl" : "https:\/\/sandbox.basysiqpro.com\/api",
+    "applyTax" : 3,
+    "CCFeeDay" : 0,
+    "chargeCCFee" : 0,
+    "BlacklistCfg" : 1
+  }],
+  "AuthenticationKeys": [{
+    "campgroundId": 0,
+    "apiKeyId": 1,
+    "userId": 1,
+    "permissions": 65535
+  }],
+  "Campsites": [{
+    "campgroundId": 0,
+    "name": "R1",
+    "siteType": "Back in",
+    "slabType": "Grass",
+    "length": 55,
+    "width": 18,
+    "maxTrailerSize": 45,
+    "minTrailerSize": 1,
+    "electric": "50,30",
+    "water": 1,
+    "sewer": 1,
+    "cable": 0,
+    "wifi": 0,
+    "firepit": 0,
+    "picnicTable": 0,
+    "grill": 0,
+    "minDays": 1,
+    "blockDays": 1,
+    "RVSite": 1,
+    "monthlySite": 0
+  }],
+  "SiteRates": [{
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-01 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+  },
+  {
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-02 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+  },
+  {
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-03 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+  },
+  {
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-04 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+  },
+  {
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-05 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+  },
+  {
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-06 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+  },
+  {
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-07 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+  },
+  {
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-08 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+  },
+  {
+  	"campgroundId" : 0,
+  	"campsiteId" : 0,
+  	"date" : "2032-01-09 00:00:00",
+  	"rate" : 30.00,
+  	"minDays" : 1,
+  	"stayLength" : 1
+	}]
+}

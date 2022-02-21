@@ -1,0 +1,4 @@
+node -e 'console.log(`Tests start ` + new Date())'
+mocha ./test/getCampgroundTest.js --reporter-options output=report/getCampgroundTestReport.html
+mocha ./test/getRatesTest.js --reporter-options output=report/getRatesTestReport.html
+node -e 'console.log(`Tests end ` + new Date())'
