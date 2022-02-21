@@ -1,7 +1,8 @@
 
 const foreignKeyMap = {
   campgroundId: 'Campgrounds',
-  campsiteId: 'Campsites'
+  campsiteId: 'Campsites',
+  customerId: 'Customers'
 }
 
 export const createData = (connection, testData, rowIds, tableNameIndex, rowIndex, complete) => {
