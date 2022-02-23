@@ -16,15 +16,29 @@ describe('getReservations', () => {
     testSuccess('should return data properly', simpleUrl, response => {
       console.log(Object.keys(response));
 
-      // const rateResponse = response.Rates[Object.keys(response.Rates)[0]];
-      // const rateData = testData.SiteRates[1];
-      //
-      // expect(rateResponse.BaseRate).to.equal(rateData.rate);
-      // expect(rateResponse.TotalCharge).to.equal(rateData.rate);
-      // expect(rateResponse.Tax).to.equal(0);
-      // expect(rateResponse.ProcFee).to.equal(0);
-      // expect(rateResponse.DiscountAmt).to.equal(0);
-      // expect(rateResponse.DynamicAdjust).to.equal(0);
+      const subResponse = response.Reservations;
+
+      if (!subResponse) fail('No reservation found in response');
+
+      const reservationResponse = subResponse[Object.keys(subResponse)[0]];
+      const reservationData = testData.Reservations[0];
+      const campgroundData = testData.Campgrounds[0];
+      const customerData = testData.Customers[0];
+
+      expect(reservationResponse.CampgroundName).to.equal(campgroundData.urlName);
+      expect(reservationResponse.Customer.FirstName).to.equal(customerData.firstName);
+      expect(reservationResponse.Campsite.Id).to.greaterThan(0);
+      expect(reservationResponse.ManagementReserved).to.equal(reservationData.managementReserved);
+      expect(reservationResponse.ManagerCreated).to.equal(reservationData.managerCreated);
+      expect(reservationResponse.ManagerUpdated).to.equal(reservationData.managerUpdated);
+      expect(reservationResponse.Checkin).to.equal('2032-01-02T00:00:00Z');
+      expect(reservationResponse.Checkout).to.equal('2032-01-03T00:00:00Z');
+      expect(reservationResponse.TotalCharge).to.equal(reservationData.managementReserved);
+      expect(reservationResponse.ManagementReserved).to.equal(reservationData.managementReserved);
+      expect(reservationResponse.ManagementReserved).to.equal(reservationData.managementReserved);
+      expect(reservationResponse.ManagementReserved).to.equal(reservationData.managementReserved);
+
+
     });
 
   });

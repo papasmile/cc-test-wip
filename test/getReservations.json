@@ -84,7 +84,7 @@
 		"campgroundId" : 0,
 		"customerId" : 0,
 		"campsiteId" : 0,
-		"managementReserved" : 0,
+		"managementReserved" : 1,
 		"managerCreated" : 0,
 		"managerUpdated" : 0,
 		"checkin" : "2032-01-02 00:00:00",
