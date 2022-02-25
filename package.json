@@ -1,11 +1,11 @@
 {
   "name": "cc-public-service-test",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Integration tests for public-facing Campground Commander services",
   "main": "index.js",
   "scripts": {
     "test": "./test/run_suite",
-    "yo": "console.log(new Date())"
+    "test-local": "DB_HOST=34.122.228.45 DB_USER=cceng DB_PASS=Eng56THabM7u DB_NAME=Campgrounds API_HOST='https://getcampground-ntxpstvepa-uc.a.run.app' ./test/run_suite"
   },
   "author": "Campground Commander",
   "eslintConfig": {

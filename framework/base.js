@@ -9,15 +9,15 @@ import fs from 'fs';
 import { createData } from './tdm.js';
 
 var connection = mysql.createConnection({
-  host     : '34.122.228.45',
-  user     : 'cceng',
-  password : 'Eng56THabM7u',
-  database : 'Campgrounds'
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASS,
+  database : process.env.DB_NAME
 });
 
 connection.connect();
 
-const req = request('https://getcampground-ntxpstvepa-uc.a.run.app');
+const req = request(process.env.API_HOST);
 
 /*
 
@@ -82,7 +82,7 @@ export const testSuccess = (scenario, url, handleSuccess) => {
     req.get('/eng' + url)
       .set('X-API-Auth', 'daa49316-bc03-4811-9781-d74c0defa62e')
       .set('Accept', 'application/json')
-      //.expect('Content-Type', /json/)  TODO: MENTION TO SIMON
+      .expect('Content-Type', /json/)
       .expect(200)
       .then(response => { handleSuccess(JSON.parse(response.text)); done(); })
       .catch(err => done(err))

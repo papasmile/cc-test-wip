@@ -37,8 +37,6 @@ describe('getAvailable', () => {
       expect(campsiteResponse.firepit).to.equal(campsiteData.firepit);
       expect(campsiteResponse.picnicTable).to.equal(campsiteData.picnicTable);
       expect(campsiteResponse.grill).to.equal(campsiteData.grill);
-      expect(campsiteResponse.minDays).to.equal(campsiteData.minDays);
-      expect(campsiteResponse.blockDays).to.equal(campsiteData.blockDays);
       expect(campsiteResponse.rvSite).to.equal(campsiteData.RVSite);
       expect(campsiteResponse.monthlySite).to.equal(campsiteData.monthlySite);
     });
