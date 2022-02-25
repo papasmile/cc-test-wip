@@ -1,5 +1,6 @@
-node -e 'console.log(`Tests start ` + new Date())'
-mocha ./test/getCampgroundTest.js --reporter-options output=report/getCampgroundTestReport.html
-mocha ./test/getRatesTest.js --reporter-options output=report/getRatesTestReport.html
-mocha ./test/getReservationsTest.js --reporter-options output=report/getReservationsTestReport.html
+node -e 'console.log(`Tests start ` + new Date())' &&
+mocha ./test/getCampgroundTest.js --reporter-options output=report/getCampgroundTestReport.html &&
+mocha ./test/getRatesTest.js --reporter-options output=report/getRatesTestReport.html &&
+mocha ./test/getReservationsTest.js --reporter-options output=report/getReservationsTestReport.html &&
+mocha ./test/getAvailableTest.js --reporter-options output=report/getAvailableTestReport.html &&
 node -e 'console.log(`Tests end ` + new Date())'

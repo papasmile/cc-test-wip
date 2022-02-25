@@ -102,8 +102,8 @@
 		"dynamicAdjust" : 0.00,
 		"origDynamicAdjust" : 0.00,
 		"CCFeeDay" : 0,
-		"discountId" : null,
-		"customerNotes" : null,
+		"discountId" : 0,
+		"customerNotes" : "thanks.",
 		"cancelled" : null
 	}],
 	"ObjectLocations": [{
