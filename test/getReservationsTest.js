@@ -39,7 +39,6 @@ describe('getReservations', () => {
       expect(reservationResponse.DynamicAdjust).to.equal(reservationData.dynamicAdjust);
       expect(reservationResponse.DiscountId).to.equal(reservationData.discountId);
       expect(reservationResponse.CustomerNotes).to.equal(reservationData.customerNotes);
-      expect(reservationResponse.Cancelled).to.equal('0001-01-01T00:00:00Z');
     });
 
   });
