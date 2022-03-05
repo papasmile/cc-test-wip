@@ -127,5 +127,13 @@
   	"rate" : 30.00,
   	"minDays" : 1,
   	"stayLength" : 1
+	}],
+  "Discounts": [{
+		"campgroundId" : 0,
+		"campsiteId" : 0,
+		"name" : "test discount",
+		"date" : "2022-03-05 14:36:54",
+		"discount" : 12,
+		"discountType" : 3
 	}]
 }

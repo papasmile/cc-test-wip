@@ -45,7 +45,7 @@ describe('getAvailable', () => {
 
   describe('Edge/Error Flows', () => {
 
-    // single day stay
+    // require wifi
     const wiFiUrl = '/getAvailable?Checkin=2032-01-02T00:00:00.000Z&Checkout=2032-01-03T00:00:00.000Z&WiFi=1';
 
     testSuccess('WiFi is required but not available', wiFiUrl, response => {

@@ -22,7 +22,8 @@ const req = request(process.env.API_HOST);
 /*
 
 To initialize, call default export with a relative path to json data representing tables and columns.
-a callback function can be passed to perform any extra pre-suite initalization or to capture json data.
+A callback function can be passed to perform any extra pre-suite initalization or to capture json data.
+If generated data (esp. a row identifier) is needed in tests, those can be run inside that callback function.
 
 Example 'data.json':
 
@@ -49,8 +50,9 @@ const setupTest = (dataFile, baseUrl, extraInit) => {
   before(done => {
     fs.readFile(dataFile,'utf-8', (err,jsonString) => {
       const testData = JSON.parse(jsonString);
-      createData(connection, testData, {}, 0, 0, () => {
-        extraInit(testData);
+      const rowIds = {};
+      createData(connection, testData, rowIds, 0, 0, () => {
+        extraInit(testData, rowIds);
         done();
       });
     });
