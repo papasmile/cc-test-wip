@@ -4,7 +4,7 @@ import dataSetup, { testSuccess } from '../framework/base.js';
 
 let testData;
 
-dataSetup('./test/getReservations.json', data => testData = data);
+dataSetup('./test/getReservations.json', '/getReservations', data => testData = data);
 
 describe('getReservations', () => {
 

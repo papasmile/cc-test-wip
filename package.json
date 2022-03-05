@@ -1,6 +1,6 @@
 {
   "name": "cc-public-service-test",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Integration tests for public-facing Campground Commander services",
   "main": "index.js",
   "scripts": {

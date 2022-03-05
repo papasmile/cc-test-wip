@@ -4,9 +4,9 @@ import dataSetup, { testSuccess } from '../framework/base.js';
 
 let testData;
 
-dataSetup('./test/getRates.json', data => testData = data);
+dataSetup('./test/getRates.json', '/getRates', data => testData = data);
 
-describe("getRates", () => {
+describe('getRates', () => {
 
   describe('Primary Flow', () => {
 

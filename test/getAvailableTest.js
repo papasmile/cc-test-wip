@@ -1,10 +1,10 @@
 
 import { expect } from 'chai';
-import dataSetup, { testSuccess } from '../framework/base.js';
+import dataSetup, { testSuccess, testError } from '../framework/base.js';
 
 let testData;
 
-dataSetup('./test/getAvailable.json', data => testData = data);
+dataSetup('./test/getAvailable.json', '/getAvailable', data => testData = data);
 
 describe('getAvailable', () => {
 
@@ -40,6 +40,23 @@ describe('getAvailable', () => {
       expect(campsiteResponse.rvSite).to.equal(campsiteData.RVSite);
       expect(campsiteResponse.monthlySite).to.equal(campsiteData.monthlySite);
     });
+
+  });
+
+  describe('Edge/Error Flows', () => {
+
+    // single day stay
+    const wiFiUrl = '/getAvailable?Checkin=2032-01-02T00:00:00.000Z&Checkout=2032-01-03T00:00:00.000Z&WiFi=1';
+
+    testSuccess('WiFi is required but not available', wiFiUrl, response => {
+      const subResponse = response.Campsites;
+
+      if (!(subResponse && subResponse.length)) assert.fail('No campsites found in response');
+
+      expect(subResponse[0].available).to.equal(false);
+    });
+
+    testError('Missing parameters return an error', '/getAvailable?Checkin=2032-01-02T00:00:00.000Z', 400);
 
   });
 

@@ -45,7 +45,7 @@ dataSetup('./test/data.json', data => testData = data);
 describe("my tests", () => { ... });
 
 */
-const setupTest = (dataFile, extraInit) => {
+const setupTest = (dataFile, baseUrl, extraInit) => {
   before(done => {
     fs.readFile(dataFile,'utf-8', (err,jsonString) => {
       const testData = JSON.parse(jsonString);
@@ -61,6 +61,17 @@ const setupTest = (dataFile, extraInit) => {
       done();
     });
   })
+
+  describe(`Authentication for ${baseUrl}`, () => {
+    it('requires authentication', function(done) {
+      this.timeout(20000);
+      req.get('/eng' + baseUrl)
+        .set('X-API-Auth', '')
+        .then(response => { throw Error('Expected authentication to fail'); })
+        .catch(err => { if (err.statusCode == 401) done(); else done(err); });
+        // .end((err, res) => console.log(res)) // uncomment to debug
+    });
+  });
 };
 
 /*
@@ -85,8 +96,31 @@ export const testSuccess = (scenario, url, handleSuccess) => {
       .expect('Content-Type', /json/)
       .expect(200)
       .then(response => { handleSuccess(JSON.parse(response.text)); done(); })
-      .catch(err => done(err))
+      .catch(err => done(err));
       // .end((err, res) => console.log(res)) // uncomment to debug
+  });
+};
+
+/*
+
+  To test an unsuccessful REST GET scenario pass a descrption, route, and expected status code.
+
+  Example test code, 'test/mygettest.js':
+
+  import { testError } from '../framework/base.js';
+
+  describe('my test', () => {
+    testError('should not work', '/getAvailable', 400);
+  });
+
+*/
+export const testError = (scenario, url, expectedStatus) => {
+  it(scenario, function(done) {
+    this.timeout(20000);
+    req.get('/eng' + url)
+      .set('X-API-Auth', 'daa49316-bc03-4811-9781-d74c0defa62e')
+      .then(response => { throw Error('Expected an error'); })
+      .catch(err => { if (err.statusCode == expectedStatus) done(); else done(err); });
   });
 };
 
