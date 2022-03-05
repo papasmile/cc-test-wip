@@ -67,7 +67,9 @@ const setupTest = (dataFile, baseUrl, extraInit) => {
       this.timeout(20000);
       req.get('/eng' + baseUrl)
         .set('X-API-Auth', '')
-        .then(response => { throw Error('Expected authentication to fail'); })
+        .then(response => {
+          if (response.statusCode === 401) done(); else throw Error('Expected authentication to fail');
+        })
         .catch(err => { if (err.statusCode == 401) done(); else done(err); });
         // .end((err, res) => console.log(res)) // uncomment to debug
     });
@@ -119,8 +121,11 @@ export const testError = (scenario, url, expectedStatus) => {
     this.timeout(20000);
     req.get('/eng' + url)
       .set('X-API-Auth', 'daa49316-bc03-4811-9781-d74c0defa62e')
-      .then(response => { throw Error('Expected an error'); })
-      .catch(err => { if (err.statusCode == expectedStatus) done(); else done(err); });
+      .then(response => {
+        if (response.statusCode === expectedStatus) done();
+        else throw Error(`Expected ${expectedStatus} but got ${response.statusCode}`);
+      })
+      .catch(err => { if (err.statusCode === expectedStatus) done(); else done(err); });
   });
 };
 
