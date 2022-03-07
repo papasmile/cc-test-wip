@@ -1,6 +1,7 @@
 
 import { expect } from 'chai';
 import dataSetup, { testSuccess } from '../framework/base.js';
+import { formatApiDate } from '../framework/data-utils.js'
 
 let testData;
 
@@ -18,7 +19,9 @@ describe("getCampground", () => {
 
       const campsiteResponse = campgroundResponse.Campsites[0];
       const campsiteData = testData.Campsites[0];
+      const bondaryData = testData.ObjectLocations[1];
 
+      expect(campsiteResponse.Id).to.exist;
       expect(campsiteResponse.name).to.equal(campsiteData.name);
       expect(campsiteResponse.siteType).to.equal(campsiteData.siteType);
       expect(campsiteResponse.slabType).to.equal(campsiteData.slabType);
@@ -38,6 +41,9 @@ describe("getCampground", () => {
       expect(campsiteResponse.blockDays).to.equal(campsiteData.blockDays);
       expect(campsiteResponse.rvSite).to.equal(campsiteData.RVSite);
       expect(campsiteResponse.monthlySite).to.equal(campsiteData.monthlySite);
+      expect(campsiteResponse.maintenanceStart).to.equal(formatApiDate(campsiteData.maintenanceStart));
+      expect(campsiteResponse.maintenanceEnd).to.equal(formatApiDate(campsiteData.maintenanceEnd));
+      expect(campsiteResponse.boundaries.BoundaryPoints.points).to.equal(boundaryData.boundaryDisplayPoints);
 
       const boundaryResponse = campgroundResponse.Boundaries;
       const boundaryData = testData.ObjectLocations[0];
