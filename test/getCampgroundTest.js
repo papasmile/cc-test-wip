@@ -15,11 +15,12 @@ describe("getCampground", () => {
       const campgroundResponse = response.Campground;
       const campgroundData = testData.Campgrounds[0];
 
+      expect(campgroundResponse.Id).to.exist;
       expect(campgroundResponse.Name).to.equal(campgroundData.name);
 
       const campsiteResponse = campgroundResponse.Campsites[0];
       const campsiteData = testData.Campsites[0];
-      const bondaryData = testData.ObjectLocations[1];
+      const campsiteBoundaryData = testData.ObjectLocations[1];
 
       expect(campsiteResponse.Id).to.exist;
       expect(campsiteResponse.name).to.equal(campsiteData.name);
@@ -43,7 +44,7 @@ describe("getCampground", () => {
       expect(campsiteResponse.monthlySite).to.equal(campsiteData.monthlySite);
       expect(campsiteResponse.maintenanceStart).to.equal(formatApiDate(campsiteData.maintenanceStart));
       expect(campsiteResponse.maintenanceEnd).to.equal(formatApiDate(campsiteData.maintenanceEnd));
-      expect(campsiteResponse.boundaries.BoundaryPoints.points).to.equal(boundaryData.boundaryDisplayPoints);
+      expect(campsiteResponse.boundaries.BoundaryPoints.points).to.equal(campsiteBoundaryData.boundaryDisplayPoints);
 
       const boundaryResponse = campgroundResponse.Boundaries;
       const boundaryData = testData.ObjectLocations[0];
@@ -54,10 +55,10 @@ describe("getCampground", () => {
       expect(boundaryResponse.FacingDirection).to.equal(boundaryData.facingDirection);
       expect(boundaryResponse.ObjectType).to.equal(boundaryData.objectType);
 
-
       const amenitiyResponse = campgroundResponse.Amenities[0];
       const amenitiyData = testData.Amenities[0];
 
+      expect(amenitiyResponse.Id).to.exist;
       expect(amenitiyResponse.name).to.equal(amenitiyData.name);
       expect(amenitiyResponse.iconUrl).to.equal(amenitiyData.iconUrl);
       expect(amenitiyResponse.description).to.equal(amenitiyData.description);
@@ -67,6 +68,7 @@ describe("getCampground", () => {
       const roadResponse = campgroundResponse.Roads[0];
       const roadData = testData.ObjectLocations[2];
 
+      expect(roadResponse.Id).to.exist;
       expect(roadResponse.road.BoundaryPoints.points).to.equal(roadData.boundaryPoints);
     });
 

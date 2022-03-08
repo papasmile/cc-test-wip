@@ -55,8 +55,8 @@
 		"blockDays": 1,
 		"RVSite": 1,
 		"monthlySite": 0,
-		"maintenanceStart": "2052-01-02 00:00:00",
-		"maintenanceEnd": "2052-01-03 00:00:00"
+		"maintenanceStart": "2035-01-02 00:00:00",
+		"maintenanceEnd": "2035-01-03 00:00:00"
 	}],
 	"Amenities":[{
 		"campgroundId": 0,
