@@ -54,7 +54,9 @@
     "minDays": 1,
     "blockDays": 1,
     "RVSite": 1,
-    "monthlySite": 0
+    "monthlySite": 0,
+		"maintenanceStart": "2035-01-02 00:00:00",
+		"maintenanceEnd": "2035-01-03 00:00:00"
   }],
   "SiteRates": [{
   	"campgroundId" : 0,
@@ -127,5 +129,15 @@
   	"rate" : 30.00,
   	"minDays" : 1,
   	"stayLength" : 1
+	}],
+	"ObjectLocations": [{
+		"campgroundId": 0,
+		"campsiteId": 0,
+		"boundaryPoints": "-94.688935,42.551061;-94.688943,42.551294;-94.689085,42.551294;-94.68908,42.551053",
+		"boundaryDisplayPoints": "-94.688935,42.551061;-94.688943,42.551294;-94.689085,42.551294;-94.68908,42.551053",
+		"centerLat": 42.551176,
+		"centerLon": -94.689011,
+		"facingDirection": 0,
+		"objectType": 0
 	}]
 }

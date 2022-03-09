@@ -1,6 +1,6 @@
-
 import { expect } from 'chai';
 import dataSetup, { testSuccess, testError } from '../framework/base.js';
+import { formatApiDate } from '../framework/data-utils.js'
 
 let testData;
 
@@ -25,7 +25,9 @@ describe('getReservations', () => {
       const campgroundData = testData.Campgrounds[0];
       const customerData = testData.Customers[0];
 
+      expect(reservationResponse.Id).to.exist;
       expect(reservationResponse.CampgroundName).to.equal(campgroundData.urlName);
+      expect(reservationResponse.CampgroundId).to.greaterThan(0);
       expect(reservationResponse.Customer.FirstName).to.equal(customerData.firstName);
       expect(reservationResponse.Campsite.Id).to.greaterThan(0);
       expect(reservationResponse.ManagementReserved).to.equal(reservationData.managementReserved);
@@ -41,6 +43,11 @@ describe('getReservations', () => {
       expect(reservationResponse.DynamicAdjust).to.equal(reservationData.dynamicAdjust);
       expect(reservationResponse.DiscountId).to.equal(reservationData.discountId);
       expect(reservationResponse.CustomerNotes).to.equal(reservationData.customerNotes);
+
+      const cancelledReservationResponse = subResponse[Object.keys(subResponse)[1]];
+      const cancelledReservationData = testData.Reservations[1];
+
+      expect(cancelledReservationResponse.Cancelled).to.equal(formatApiDate(cancelledReservationData.cancelled));
     });
 
   });
