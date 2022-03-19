@@ -1,0 +1,9 @@
+steps:
+- name: gcr.io/engineering-338720/testimage-1.1
+  dir: /app
+  env:
+  - DB_HOST=127.0.0.1
+  - DB_USER=cceng
+  - DB_PASS=Eng56THabM7u
+  - DB_NAME=Campgrounds
+  - API_HOST='https://getcampground-ntxpstvepa-uc.a.run.app'

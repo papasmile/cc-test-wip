@@ -6,7 +6,7 @@ COPY package.json /app
 COPY /framework /app/framework
 COPY /test /app/test
 
-RUN npm install
 RUN mkdir /app/report
+RUN npm install
 
-CMD ["npm", "run", "test"]
+ENTRYPOINT ["npm", "run", "test"]
