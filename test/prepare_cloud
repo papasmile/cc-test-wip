@@ -1,0 +1,4 @@
+wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy &&
+chmod +x cloud_sql_proxy &&
+./cloud_sql_proxy -instances=engineering-338720:us-central1:eng-db-1=tcp:3306 -log_debug_stdout=true &
+sleep 10

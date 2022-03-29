@@ -4,7 +4,7 @@
   "description": "Integration tests for public-facing Campground Commander services",
   "main": "index.js",
   "scripts": {
-    "test": "./test/run_suite",
+    "test": "./test/prepare_cloud && ./test/run_suite",
     "test-local": "DB_HOST=34.122.228.45 DB_USER=cceng DB_PASS=Eng56THabM7u DB_NAME=Campgrounds API_HOST='https://getcampground-ntxpstvepa-uc.a.run.app' ./test/run_suite"
   },
   "author": "Campground Commander",

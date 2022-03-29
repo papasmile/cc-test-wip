@@ -6,4 +6,4 @@ steps:
   - DB_USER=cceng
   - DB_PASS=Eng56THabM7u
   - DB_NAME=Campgrounds
-  - API_HOST='https://getcampground-ntxpstvepa-uc.a.run.app'
+  - API_HOST=https://getcampground-ntxpstvepa-uc.a.run.app
