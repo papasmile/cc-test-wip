@@ -7,3 +7,7 @@ steps:
   - DB_PASS=Eng56THabM7u
   - DB_NAME=Campgrounds
   - API_HOST=https://getcampground-ntxpstvepa-uc.a.run.app
+artifacts:
+  objects:
+    location: 'gs://integration_test_reservationapi/prod_pipeline_demo/$BUILD_ID'
+    paths: ['/workspace/report/*.html']

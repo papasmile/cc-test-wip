@@ -3,4 +3,5 @@ mocha ./test/getCampgroundTest.js --reporter-options output=report/getCampground
 mocha ./test/getRatesTest.js --reporter-options output=report/getRatesTestReport.html &&
 mocha ./test/getReservationsTest.js --reporter-options output=report/getReservationsTestReport.html &&
 mocha ./test/getAvailableTest.js --reporter-options output=report/getAvailableTestReport.html &&
-node -e 'console.log(`Tests end ` + new Date())'
+node -e 'console.log(`Tests end ` + new Date())' &&
+cp -r report /workspace
