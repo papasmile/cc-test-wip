@@ -1,0 +1,15 @@
+steps:
+- name: gcr.io/cloud-builders/npm
+  args: ['install']
+- name: gcr.io/cloud-builders/npm
+  env:
+  - DB_HOST=127.0.0.1
+  - DB_USER=cceng
+  - DB_PASS=Eng56THabM7u
+  - DB_NAME=Campgrounds
+  - API_HOST=https://getcampground-ntxpstvepa-uc.a.run.app
+  args: ['test']
+artifacts:
+  objects:
+    location: 'gs://integration_test_reservationapi/test_update_pipeline/$BUILD_ID'
+    paths: ['report/*.html']

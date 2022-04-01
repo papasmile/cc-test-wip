@@ -18,7 +18,7 @@ describe('getReservations', () => {
 
       if (!subResponse) fail('No reservation found in response');
 
-      expect(Object.keys(subResponse).length).to.equal(2);
+      expect(Object.keys(subResponse).length).to.equal(1);
 
       const reservationResponse = subResponse[Object.keys(subResponse)[0]];
       const reservationData = testData.Reservations[0];
@@ -44,10 +44,12 @@ describe('getReservations', () => {
       expect(reservationResponse.DiscountId).to.equal(reservationData.discountId);
       expect(reservationResponse.CustomerNotes).to.equal(reservationData.customerNotes);
 
+      /** START cancel reservation flow pending future development
       const cancelledReservationResponse = subResponse[Object.keys(subResponse)[1]];
       const cancelledReservationData = testData.Reservations[1];
 
       expect(cancelledReservationResponse.Cancelled).to.equal(formatApiDate(cancelledReservationData.cancelled));
+      END */
     });
 
   });
